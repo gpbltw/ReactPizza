@@ -6,7 +6,7 @@ import { CartItem, addItem } from "../../redux/slices/cartSlice";
 type pizzaCardProps = {
   id: number;
   title: string;
-  price: number;
+  price: number[];
   imageUrl: string;
   sizes: number[];
   types: number[];
@@ -23,6 +23,7 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
 }) => {
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
+
   const cartItem = useSelector((state: any) =>
     state.cart.items.find((obj: any) => obj.id === id)
   );
@@ -31,11 +32,13 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
 
   const typeNames = ["тонкое", "традиционное"];
 
+  const currentPrice = price[activeSize];
+
   const onClickAdd = () => {
     const item: CartItem = {
       id,
       title,
-      price,
+      price: currentPrice,
       imageUrl,
       type: typeNames[activeType],
       size: sizes[activeSize],
@@ -76,7 +79,7 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
           </ul>
         </div>
         <div className="pizza-block__bottom">
-          <div className="pizza-block__price">{price} ₽</div>
+          <div className="pizza-block__price">{currentPrice} ₽</div>
           <button
             className="button button--outline button--add"
             onClick={onClickAdd}

@@ -28,7 +28,7 @@ export const fetchPizzas = createAsyncThunk<PizzaItem[], SearchPizzaParams>(
 type PizzaItem = {
   id: number;
   title: string;
-  price: number;
+  price: number[];
   imageUrl: string;
   sizes: number[];
   types: number[];
