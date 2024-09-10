@@ -3,7 +3,7 @@ import { getCartFromLocalStorage } from "../../utils/getCartFromLocalStorage";
 import { calcTotalPrice } from "../../utils/calcTotalPrice";
 
 export type CartItem = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   imageUrl: string;
@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
 
       state.totalPrice = calcTotalPrice(state.items);
     },
-    minusItem(state, action: PayloadAction<number>) {
+    minusItem(state, action: PayloadAction<string>) {
       const findItem = state.items.find((obj) => obj.id === action.payload);
       if (findItem) {
         findItem.count--;
@@ -56,8 +56,9 @@ export const cartSlice = createSlice({
         }, 0);
       }
     },
-    removeItem(state, action: PayloadAction<number>) {
+    removeItem(state, action: PayloadAction<string>) {
       state.items = state.items.filter((obj) => obj.id !== action.payload);
+      state.totalPrice = calcTotalPrice(state.items);
     },
     clearItem(state) {
       state.items = [];

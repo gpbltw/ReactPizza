@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem, addItem } from "../../redux/slices/cartSlice";
+import Toast from "../toast/Toast";
 
 type pizzaCardProps = {
   id: number;
@@ -23,20 +24,22 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
 }) => {
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
+  const [showToast, setShowToast] = useState(false); // Состояние для показа уведомления
+  const dispatch = useDispatch();
 
   const cartItem = useSelector((state: any) =>
     state.cart.items.find((obj: any) => obj.id === id)
   );
 
-  const addedCount = cartItem ? cartItem.count : 0;
-
   const typeNames = ["тонкое", "традиционное"];
 
   const currentPrice = price[activeSize];
 
+  const uniqueId = `${id}_${sizes[activeSize]}_${types[activeType]}`;
+
   const onClickAdd = () => {
     const item: CartItem = {
-      id,
+      id: uniqueId,
       title,
       price: currentPrice,
       imageUrl,
@@ -45,9 +48,8 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
       count: 0,
     };
     dispatch(addItem(item));
+    setShowToast(true);
   };
-
-  const dispatch = useDispatch();
 
   return (
     <div className="pizza-block__wrapper">
@@ -97,10 +99,15 @@ const PizzaCard: React.FC<pizzaCardProps> = ({
               />
             </svg>
             <span>Добавить</span>
-            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
+      {showToast && (
+        <Toast
+          message="Пицца добавлена в корзину!"
+          onClose={() => setShowToast(false)}
+        />
+      )}
     </div>
   );
 };

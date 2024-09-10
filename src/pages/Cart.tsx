@@ -6,7 +6,7 @@ import CartEmpty from "../components/cartItem/CartEmpty";
 
 // Определение интерфейсов
 interface CartItemType {
-  id: number;
+  id: string;
   name: string;
   price: number;
   count: number;
