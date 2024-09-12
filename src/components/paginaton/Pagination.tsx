@@ -7,7 +7,7 @@ type paginatonProps = {
   onChangePage: (number: number) => void;
 };
 
-const Pagination: React.FC<paginatonProps> = ({ onChangePage }) => {
+const Pagination: React.FC<paginatonProps> = ({ value, onChangePage }) => {
   return (
     <>
       <ReactPaginate
@@ -19,6 +19,7 @@ const Pagination: React.FC<paginatonProps> = ({ onChangePage }) => {
         pageCount={3}
         previousLabel="<"
         renderOnZeroPageCount={null}
+        forcePage={value - 1}
       />
     </>
   );

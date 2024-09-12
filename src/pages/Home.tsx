@@ -87,8 +87,11 @@ export const Home: React.FC = () => {
   }, [categoryId, sort, searchValue, currentPage]);
 
   const onClickCategory = React.useCallback(
-    (i: number) => dispatch(changeCategory(i)),
-    []
+    (i: number) => {
+      dispatch(changeCategory(i));
+      dispatch(changeCurrentPage(1)); // Сброс страницы на первую
+    },
+    [dispatch]
   );
 
   const pizzas = items.map((obj) => <PizzaCard key={obj.id} {...obj} />);
