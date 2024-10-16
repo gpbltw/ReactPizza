@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Интернет-магазин пиццерии на ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
 
-## Available Scripts
+Веб-приложение пиццерии, разработанное с использованием самых современных frontend-технологий на момент создания. Приложение реализует множество функций, необходимых для работы современных онлайн-сервисов.
 
-In the project directory, you can run:
+## Функционал
 
-### `npm start`
+- Поиск
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/user-attachments/assets/c0e42fa4-6450-468a-a7df-600e8eac174f)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Для оптимизации поиска и предотвращения мгновенной перерисовки элементов при каждом изменении в поисковой строке, используется **debounce**. Кроме того, поиск и отображение результатов происходит только при вводе не менее двух символов.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://github.com/user-attachments/assets/5edf09c3-5faa-40ce-86e3-1b1bf6c0855b)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Если пользователь пытается найти пиццу, которой нет в наличии, отображается соответствующее сообщение.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://github.com/user-attachments/assets/72779c05-99aa-444c-bd70-589a98fd474a)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+По клику на иконку крестика поле поиска очищается.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Фильтрация
+  
+![image](https://github.com/user-attachments/assets/17bf4c63-1469-4714-bc95-94d0bf4b9de2)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+(Названия категорий в примере условны и могут отличаться от реальных категорий)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://github.com/user-attachments/assets/6328d345-1616-4c89-b495-cd55cd0f7a3f)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://github.com/user-attachments/assets/fd245ff3-2343-458f-b20d-987b327b79f5)
 
-## Learn More
+- Сортировка
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](https://github.com/user-attachments/assets/0045ad27-a960-44af-b4e4-451e6cebfe05)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://github.com/user-attachments/assets/5e1e1d29-c6de-4cd6-9325-b8e20f081245)
 
-### Code Splitting
+- Типизация
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](https://github.com/user-attachments/assets/42b8781d-4a34-4526-949c-9f49b74c5f1f)
 
-### Analyzing the Bundle Size
+![image](https://github.com/user-attachments/assets/5b7361b1-056c-444d-a1a6-534dd4f0b527)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![image](https://github.com/user-attachments/assets/e8493e41-46b5-4749-b5ba-fd050b96c709)
 
-### Making a Progressive Web App
+- Пагинация
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Приложение поддерживает разбивку результатов на страницы для удобства навигации по каталогу.
 
-### Advanced Configuration
+![image](https://github.com/user-attachments/assets/70045324-d465-454c-9dd3-69cc375e8a46)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![image](https://github.com/user-attachments/assets/e3cd14b0-3af5-4bdd-bc94-495ace5123da)
 
-### Deployment
+- Корзина
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Корзина включает в себя множество полезных функций: счетчики товаров, кнопки увеличения, уменьшения и удаления позиций, кнопку для очистки корзины (с подтверждением через alert), динамический подсчет общей суммы заказа, а также хранение данных в localStorage. Это позволяет сохранить содержимое корзины даже после обновления страницы.
 
-### `npm run build` fails to minify
+![image](https://github.com/user-attachments/assets/e76e86f5-0b40-4cda-b6b6-6daa453e69e8)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Технологии
+- ReactJS 18
+- TypeScript
+- Redux Toolkit (хранение данных / пицц)
+- React Router v6 (навигация)
+- Axios + Fetch (отправка запроса на бэкенд)
+- React Hooks (хуки)
+- Prettier (форматирование кода)
+- CSS-Modules / SCSS (стилизация)
+- React Content Loader (скелетон)
+- React Pagination (пагинация)
+- Lodash.Debounce
+- Code Splitting, React Loadable, useWhyDidYouUpdate
+
+
